@@ -28,8 +28,7 @@ def DecToHex():
         i += 1
         x /= 16
     data.reverse()
-    for i in range(len(data)):
-        print data[i],
+    print(''.join(map(str, data)))
 
 def DecToBin(x = 1, c=''):
     print "Введите число для перевода"
