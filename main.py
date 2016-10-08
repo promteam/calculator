@@ -25,7 +25,7 @@ def main():
         elif choice == '3':
             long_num_add_sub.long_arithmetics()
         elif choice == '4':
-            AndOrNot.add_or_not()
+            AndOrNot.and_or_not()
         elif choice == '0':
             exit = True
 
