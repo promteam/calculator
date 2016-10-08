@@ -72,7 +72,7 @@ def DecToOct():
                     n = n + (a % 8) * (10 ** i)
                     i += 1
                     a /= 8
-                return n
+                return  n
             except StandardError, exc:
                 print 'Некорректные данные \nВведите данные еще раз: '
 
@@ -248,7 +248,7 @@ def menu_chisel():
     if a == "6":
         ReverseBin(DecToBin(8))
     if a == "7":
-        DecToOct()
+        print DecToOct()
     if a == "8":
         DecToHex()
 
