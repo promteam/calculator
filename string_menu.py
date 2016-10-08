@@ -50,4 +50,5 @@ def menu_string_calc():
 def main():
     menu_string_calc()
 
-main()
+if __name__ == '__main__':
+    main()
