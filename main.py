@@ -26,3 +26,7 @@ def main():
             AndOrNot.add_or_not()
         elif choice == '0':
             exit = True
+
+
+if __name__ == '__main__':
+    main()
