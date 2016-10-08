@@ -256,4 +256,6 @@ def menu_chisel():
 def main():
     menu_chisel()
 
-main()
+    
+if __name__ == '__main__':
+    main()
