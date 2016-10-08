@@ -18,6 +18,7 @@ def and_or_not():
     print hello_msg
     while err_code != 4:
         print task_msg
+        answer = None
         args = raw_input().split()
         if err_code == 1:
             print format_error_msg
@@ -51,8 +52,10 @@ def and_or_not():
         elif len(args) == 1:
             if args[0].lower() == 'exit':
                 err_code = 4
-            if args[0].lower() == 'help':
+            elif args[0].lower() == 'help':
                 err_code = 5
+            else:
+            	 answer, err_code = convert_to_bool(args[0]);
         else:
             err_code = 1
 
