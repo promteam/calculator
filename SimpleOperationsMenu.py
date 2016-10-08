@@ -6,6 +6,9 @@ from math import sqrt
 
 def DecToHex():
     x = input()
+    if x == 0:
+        print 0
+        return 0
     data = []
     i = 0
     while x > 0:
@@ -24,19 +27,6 @@ def DecToHex():
             data[i] = 'F'
         i += 1
         x /= 16
-    data.append(x % 16)
-    if data[i] == 10:
-        data[i] = 'A'
-    elif data[i] == 11:
-        data[i] = 'B'
-    elif data[i] == 12:
-        data[i] = 'C'
-    elif data[i] == 13:
-        data[i] = 'D'
-    elif data[i] == 14:
-        data[i] = 'E'
-    elif data[i] == 15:
-        data[i] = 'F'
     data.reverse()
     for i in range(len(data)):
         print data[i],
