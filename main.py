@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 import AndOrNot
 import SimpleOperationsMenu
 import long_num_add_sub
