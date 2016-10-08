@@ -81,4 +81,5 @@ def convert_to_answer(input_bool):
         return 'False'
 
 
-and_or_not()
+if __name__ == '__main__':
+    and_or_not()
