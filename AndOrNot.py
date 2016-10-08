@@ -1,88 +1,57 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 def and_or_not():
+
     hello_msg = 'And Or Not\nДля помощи введите help\n'
     task_msg = 'Введите выражение:'
     answer_msg = '='
-    format_error_msg = 'Неверный формат задания'
-    arg_andornot_error_msg = 'Используемые операторы: and, or, not'
-    arg_truefalse_error_msg = 'Используемые операнды: true, false'
-    help_message = ''
-    err_code = 0
+    error_msg = 'Неверный формат задания'
+    help_message = 'В программе используются выражения вида: true and true\nДля выхода введите \'exit\''
+
+    input_str = None
     answer = None
-    # 0 - no errors
-    # 1 - format error
-    # 2 - arg andornot error
-    # 3 - arg truefalse error
-    # 4 - exit
-    # 5 - help
+    splited = None
+
     print hello_msg
-    while err_code != 4:
-        print task_msg
-        answer = None
-        args = raw_input().split()
-        if err_code == 1:
-            print format_error_msg
-            err_code = 0
-        if err_code == 2:
-            print arg_andornot_error_msg
-            err_code = 0
-        if err_code == 3:
-            print arg_truefalse_error_msg
-            err_code = 0
-        if err_code == 5:
-            print help_message
-            err_code = 0
-        if len(args) == 2:
-            if args[0].lower() == 'not':
-                args[1], err_code = convert_to_bool(args[1])
-                answer = not args[1]
+    input_str = raw_input()
+    while input_str != 'exit':
+        splited = map(lambda x: x.lower(), input_str.split())
+        if len(splited) == 1:
+            if splited[0].lower() == 'help':
+                print help_message
+            elif splited[0] == 'true' or splited[0] == 'false':
+                print answer_msg, splited[0]
+        elif len(splited) == 2:
+            if splited[0] == 'not' and (splited[1] == 'true' or splited[1] == 'false'):
+                print answer_msg, bool_to_raw(not raw_to_bool(splited[1]))
             else:
-                err_code = 2
-        elif len(args) == 3:
-            args[0], er1 = convert_to_bool(args[0])
-            args[2], er2 = convert_to_bool(args[2])
-            if er1 != 0 or er2 != 0:
-                err_code = 3
-            if args[1].lower() == 'and':
-                answer = args[0] and args[2]
-            elif args[1].lower() == 'or':
-                answer = args[0] or args[2]
+                print error_msg
+        elif len(splited) == 3:
+            if (splited[0] == 'true' or splited[0] == 'false') and (splited[2] == 'true' or splited[2] == 'false'):
+                if splited[1] == 'and':
+                    print answer_msg, bool_to_raw(raw_to_bool(splited[0]) and raw_to_bool(splited[2]))
+                elif splited[1] == 'or':
+                    print answer_msg, bool_to_raw(raw_to_bool(splited[0]) or raw_to_bool(splited[2]))
+                else:
+                    print error_msg
             else:
-                err_code = 2
-        elif len(args) == 1:
-            if args[0].lower() == 'exit':
-                err_code = 4
-            elif args[0].lower() == 'help':
-                err_code = 5
-            else:
-            	 answer, err_code = convert_to_bool(args[0]);
+                print error_msg
         else:
-            err_code = 1
-
-        if err_code == 0:
-            print answer_msg,
-            if answer:
-                print 'True'
-            else:
-                print 'False'
-        print ''
+            print error_msg
+        input_str = raw_input()
 
 
-def convert_to_bool(input_str):
-    if (input_str.lower() == 'true') or (input_str == '1') :
-        return True, 0
-    elif (input_str.lower() == 'false') or (input_str == '0'):
-        return False, 0
+def raw_to_bool(raw):
+    if raw == 'true':
+        return True
     else:
-        return False, 3
+        return False
 
 
-def convert_to_answer(input_bool):
-    if input_bool:
-        return 'True'
+def bool_to_raw(boolean):
+    if boolean:
+        return 'true'
     else:
-        return 'False'
+        return 'false'
 
 
-if __name__ == '__main__':
-    and_or_not()
+
