@@ -93,7 +93,7 @@ def SinCosRadians():
 def SinCosDeegres():
     print "Введите угол в градусах "
     a = input()
-    a = math.degrees(a)
+    a = math.radians(a)
     c = math.sin(a)
     d = math.cos(a)
     print "Синус = ", c, "Косинус = ", d
