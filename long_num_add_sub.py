@@ -14,7 +14,7 @@ def long_multiply(a, b):
         c[i] %= 10
     while len(c) > 1 and c[len(c) - 1] == 0:
         c.pop()
-    print ''.join([str(i) for i in c]),
+    print ''.join([str(i) for i in reversed(c)]),
  
  
 def long_num_add_sub(a, b, f):
