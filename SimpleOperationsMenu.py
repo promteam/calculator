@@ -5,6 +5,7 @@ import math
 from math import sqrt
 
 def DecToHex():
+    print "Введите число для перевода"
     x = input()
     if x == 0:
         print 0
