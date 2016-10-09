@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 def long_multiply(a, b):
     a.reverse()
     b.reverse()
